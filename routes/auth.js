@@ -26,19 +26,30 @@ router.post('/signup', async (req, res) => {
 
 })
 
-// // 로그인
-// router.post('/login', async (req, res) => {
-//     try {
-//         const {id, password} = req.body;
+// 로그인
+router.post('/login', async (req, res) => {
+    try {
+        const {id, password} = req.body;
 
-//         const user = await User.findOne({ where: id });
+        const user = await User.findOne({ where: {id} });
 
-//         if(user){
-            
-//             const correctPassword = 
-//         }
-//     }
-// })
+        if(user){
+            if(password === user.password){
+                req.session.user = user;
+
+                console.log(req.session.user);
+                return res.status(200).json(user);
+            }else{
+                return res.status(401).json({ error : 'Unauthorized'})
+            }
+        }else {
+            return res.status(404).json({ error : 'User Not Found'})
+        }
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({ error : 'login error '})
+    }
+})
 
 
 
