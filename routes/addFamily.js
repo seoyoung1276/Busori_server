@@ -3,6 +3,7 @@ const User = require('../models/User')
 const Family = require('../models/Family')
 const router = express.Router()
 
+// 친구 추가 요청 보내기
 router.post('/sendfollow', async (req, res) => {
     try{
         const { invite_code } = req.body;
@@ -25,5 +26,6 @@ router.post('/sendfollow', async (req, res) => {
         return res.status(500).json({ error : 'send follow error'})
     }
 })
+
 
 module.exports = router;
