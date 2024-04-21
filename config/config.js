@@ -8,6 +8,7 @@ const development = {
   host: env.SQL_HOST,
   dialect: "mysql",
   //port: env.SQL_PORT
+  timezone: "+9:00"
 };
 
 const production = {

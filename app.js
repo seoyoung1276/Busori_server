@@ -23,6 +23,7 @@ app.use('/', routes);
 
 app.set('port', process.env.PORT || 3000);
 
+app.use(express.static('static'));
 
 sequelize.sync()
     .then(() => {

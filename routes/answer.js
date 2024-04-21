@@ -6,7 +6,7 @@ const { Op } = require('sequelize');
 const router = express.Router()
 
 // 답변 작성
-router.post('/postanswer/:questionid', async (req, res) => {
+router.post('/post/:questionid', async (req, res) => {
     try {
         const currentUser = req.session.user;
         const questionId = req.params.questionid
@@ -26,7 +26,7 @@ router.post('/postanswer/:questionid', async (req, res) => {
 })
 
 // 질문에 대한 내 답변 불러오기
-router.get('/getanswer/:questionid', async (req, res) => {
+router.get('/getmyanswer/:questionid', async (req, res) => {
     try{
         const currentUser = req.session.user
         const question_no = req.params.questionid

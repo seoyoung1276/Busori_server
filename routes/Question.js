@@ -5,7 +5,7 @@ const router = express.Router()
 let question_num = 1;
 
 // 오늘의 질문 불러오기
-router.get('/showquestion', async (req, res) => {
+router.get('/show', async (req, res) => {
     try{
         changeQuestion;
         const question_no = question_num;
