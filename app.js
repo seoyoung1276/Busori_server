@@ -2,6 +2,7 @@ const express = require('express');
 const routes = require('./routes');
 const session = require('express-session');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const { sequelize } = require('./models');
 const app = express();
 
@@ -17,6 +18,12 @@ app.use(session ({
         maxAge : 1000 * 60 * 60  //쿠키 유효시간 1시간 
     }
 }))
+
+
+
+ app.use(cors({
+    origin: '*', // 모든 출처 허용 옵션. true 를 써도 된다.
+}));
 
 
 app.use('/', routes);
